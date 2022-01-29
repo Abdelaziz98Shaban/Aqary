@@ -1,0 +1,14 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Aqar.Models
+{
+    public class Category
+    {
+        public int Id { get; set; }
+
+
+        [Required(ErrorMessage = "Name Is Required"), Display(Name = "Name"), StringLength(50), RegularExpression(pattern: "[a-zA-Z]{3,}",
+                      ErrorMessage = "Name must be char only and more than 2 characters")]
+        public string Name { get; set; }
+    }
+}
