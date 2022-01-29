@@ -2,7 +2,7 @@
 
 namespace Aqar.Models
 {
-    public class AqarEntities: DbContext
+    public class AqarEntities : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<RealState> RealStates { get; set; }
@@ -24,3 +24,5 @@ namespace Aqar.Models
             modelBuilder.Entity<UserDealRealstate>()
                 .HasKey(deal => new { deal.UserId, deal.RealStateId });
         }
+    }
+}
