@@ -24,5 +24,3 @@ namespace Aqar.Models
             modelBuilder.Entity<UserDealRealstate>()
                 .HasKey(deal => new { deal.UserId, deal.RealStateId });
         }
-    }
-}
