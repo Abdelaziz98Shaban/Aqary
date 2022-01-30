@@ -6,6 +6,7 @@ namespace Aqar.Models
 {
     public class UserDealRealstate
     {
+        
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
         public User User { get; set; }
