@@ -2,6 +2,7 @@
 {
     public interface IUnitOfWork
     {
+        IUserRepo User { get; }
         ICategoryRepository Category { get; }
         void Save();
     }

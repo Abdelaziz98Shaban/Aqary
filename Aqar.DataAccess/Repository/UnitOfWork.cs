@@ -10,8 +10,12 @@ namespace Aqar.DataAccess.Repository
         {
             _db = db;
             Category = new CategoryRepository(_db);
+            User = new UserRepo(_db);
         }
         public ICategoryRepository Category { get; private set; }
+
+        public IUserRepo User { get; private set; }
+     
 
         public void Save()
         {

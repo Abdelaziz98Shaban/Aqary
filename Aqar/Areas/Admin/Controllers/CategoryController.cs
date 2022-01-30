@@ -1,4 +1,4 @@
-﻿using Aqar.DataAccess.Repository.IRepository;
+﻿using Aqar.DataAccess.Repository.IUserRepo;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Aqar.Controllers
