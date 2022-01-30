@@ -4,7 +4,7 @@
     {
         ICategoryRepository Category { get; }
         IRealStateRepositroy RealState { get; }
-
+        IUserRepo User { get; }
         void Save();
     }
 }
