@@ -13,9 +13,7 @@ namespace Aqar.Controllers
         }
         public IActionResult Index()
         {
-            var cat = _unitOfWork.Category.GetAll();
-
-            return View();
+            return View(_unitOfWork.Category.GetAll());
         }
     }
 }
