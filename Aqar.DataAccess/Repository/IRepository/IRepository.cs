@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Aqar.DataAccess.Repository.IRepository
 {
-    public interface Repository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         IEnumerable<T> GetAll();
 
