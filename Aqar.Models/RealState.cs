@@ -24,7 +24,7 @@ namespace Aqar.Models
 
 
         [Display(Name = "Images"), Required(ErrorMessage = "Images Is Required"), RegularExpression(@"\w+\.(jpg|png)", ErrorMessage = "Image must contain jpg or png ")]
-        public ICollection<RealStateImage>  Images { get; set; }
+        public ICollection<RealStateImage> Images { get; set; }
 
 
         [Display(Name = "Video"), Required(ErrorMessage = "Video Is Required"), StringLength(50)]
@@ -78,7 +78,7 @@ namespace Aqar.Models
         [Required(ErrorMessage = "AppartmentNumber Is Required"), Display(Name = "AppartmentNumber"), Range(1, 3000000000000000000)]
         public int AppartmentNumber { get; set; }
 
-         [Required(ErrorMessage = "Rooms Is Required"), Display(Name = "Rooms"), Range(1, 100)]
+        [Required(ErrorMessage = "Rooms Is Required"), Display(Name = "Rooms"), Range(1, 100)]
         public int Rooms { get; set; }
 
 

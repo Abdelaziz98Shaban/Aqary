@@ -4,12 +4,12 @@ namespace Aqar.Models
 {
     public class User
     {
-        public  int Id { get; set; }
+        public int Id { get; set; }
 
-        [Required(ErrorMessage = "FirstName Is Required"), Display(Name = "First Name"),StringLength(50), RegularExpression(pattern: "[a-zA-Z]{3,}",
+        [Required(ErrorMessage = "FirstName Is Required"), Display(Name = "First Name"), StringLength(50), RegularExpression(pattern: "[a-zA-Z]{3,}",
                            ErrorMessage = "name must be char only and more than 2 characters")]
         public string FirstName { get; set; }
-        
+
 
         [Required(ErrorMessage = "LastName Is Required"), Display(Name = "Last Name"), StringLength(50), RegularExpression(pattern: "[a-zA-Z]{3,}",
                            ErrorMessage = "name must be char only and more than 2 characters")]
@@ -27,7 +27,7 @@ namespace Aqar.Models
         [Required(ErrorMessage = "Address Is Required"), MaxLength(50)]
         public string Address { get; set; }
 
-        [Required(ErrorMessage = "Phone Is Required"), DataType(DataType.PhoneNumber),RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
+        [Required(ErrorMessage = "Phone Is Required"), DataType(DataType.PhoneNumber), RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
 
         public int Phone { get; set; }
 

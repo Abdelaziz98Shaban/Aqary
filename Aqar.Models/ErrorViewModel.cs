@@ -1,5 +1,3 @@
-using System;
-
 namespace Aqar.Models
 {
     public class ErrorViewModel
