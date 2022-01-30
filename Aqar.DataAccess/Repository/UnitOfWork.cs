@@ -10,8 +10,10 @@ namespace Aqar.DataAccess.Repository
         {
             _db = db;
             Category = new CategoryRepository(_db);
+            RealState = new RealstateRepo(_db);
         }
         public ICategoryRepository Category { get; private set; }
+        public IRealStateRepositroy RealState { get; private set; }
 
         public void Save()
         {
