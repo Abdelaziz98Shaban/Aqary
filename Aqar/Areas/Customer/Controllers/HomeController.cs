@@ -1,4 +1,5 @@
-﻿using Aqar.Models;
+﻿using Aqar.DataAccess.Repository.IRepository;
+using Aqar.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
@@ -7,17 +8,23 @@ namespace Aqar.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IUnitOfWork _dB;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IUnitOfWork DB )
         {
-            _logger = logger;
+            _dB = DB;
         }
 
         public IActionResult Index()
         {
             return View();
         }
+        public IActionResult RealStateList()
+        {
+            
+            return View(_dB.RealState.GetAll());
+        }
+
 
         public IActionResult Privacy()
         {
