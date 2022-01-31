@@ -31,7 +31,7 @@ namespace Aqar.Models
 
         public string VideoLink { get; set; }
 
-
+        
 
 
 
@@ -122,7 +122,10 @@ namespace Aqar.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
-
+        public string FullAdress
+        {
+            get { return State + ", " + City + ", " + Street + ", " + BuildingNumber + ", " + AppartmentNumber; }
+        }
 
 
 

@@ -2,15 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Aqar.DataAccess.Repository.IRepository
 {
-    public interface IRealStateRepositroy : IRepository<RealState>
+    public interface IImageRepo: IRepository<RealStateImage>
     {
-        void Update(RealState obj);
-
-        IEnumerable<RealState> SearchByID(int CatID , string st);
+        public void update(RealStateImage obj);
     }
 }
