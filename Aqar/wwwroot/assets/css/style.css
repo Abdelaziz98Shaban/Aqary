@@ -1,0 +1,4 @@
+/* Navigation bils  */
+.wizard-container .nav-pills > li + li {
+    margin-left: 0;
+}

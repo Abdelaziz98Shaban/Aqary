@@ -1,0 +1,208 @@
+@model RealState
+ <div class="content-area submit-property" style="background-color: #FCFCFC;">&nbsp;
+            <div class="container">
+                <div class="clearfix" > 
+                    <div class="wizard-container"> 
+                        <div class="wizard-card ct-wizard-orange" id="wizardProperty">
+                            <form asp-action=saveAdd >                        
+                                <div class="wizard-header">
+                                    <h3>
+                                        <b>Submit</b> YOUR PROPERTY <br>
+                                    </h3>
+                                </div>
+                                <div class="tab-content">
+                                        <div class="row p-b-15  ">
+                                            <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
+                                            
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label asp-for="Name">Property name</label>
+                                                    <input asp-for="Name" name="propertyname"  class="form-control" placeholder="Super villa ...">
+                                                    <span  class="text-danger" asp-validation-for="Name"></span>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="Price">Property price</label>
+                                                    <input asp-for="Price" name="propertyprice"  class="form-control" placeholder="3330000 EL">
+                                                    <span  class="text-danger" asp-validation-for="Price"></span>
+                                                </div> 
+                                            </div>
+                                        </div></div>
+                                    
+                                    <!--  End step 1 -->
+                                        <h4 class="info-text"> How much your Property is Beautiful ? </h4>
+                                        <div class="row">
+                                            <div class="col-sm-12"> 
+                                                <div class="col-sm-12"> 
+                                                    <div class="form-group">
+                                                        <label asp-for="Description">Property Description :</label>
+                                                        <textarea asp-for="Description" name="discrition" class="form-control" ></textarea>
+                                                        <span  class="text-danger" asp-validation-for="Description"></span>
+                                                    </div> 
+                                                </div> 
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label label asp-for="BuildingNumber">Building number : </label>
+                                                    <input label asp-for="BuildingNumber" name="Building number" class="form-control" placeholder="building number ...">
+                                                    <span  class="text-danger" asp-validation-for="BuildingNumber"></span>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label label asp-for="AppartmentNumber">Apartment number : </label>
+                                                    <input label asp-for="AppartmentNumber" name="Apartment number" class="form-control" placeholder="apartment number ...">
+                                                    <span  class="text-danger" asp-validation-for="AppartmentNumber"></span>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label label asp-for="Street">Street name : </label>
+                                                    <input  label asp-for="Street" name="Street name" class="form-control" placeholder="Street name ...">
+                                                    <span  class="text-danger" asp-validation-for="Street"></span>
+                                                </div>
+                                               
+                                                    <div class="form-group">
+                                                        <label asp-for="State"> State :</label>
+                                                        <select asp-for="State" id="lunchBegins"  data-live-search="true" data-live-search-style="begins" title="Select your State" >
+                                                            <span  class="text-danger" asp-validation-for="State"></span>
+                                                            <option>CAIRO</option>
+                                                            <option>ALX</option>
+                                                            <option>LOXER</option>
+                                                            <option>SHARKYA</option>
+                                                            <option>MONOFIA</option>
+                                                            <option>LOXER , ASWAN</option>
+                                                        </select>
+                                                    </div>
+                                               
+                                                
+                                                    <div class="form-group">
+                                                        <label asp-for="City"> City :</label>
+                                                        <select asp-for="City" id="lunchBegins"  data-live-search="true" data-live-search-style="begins" title="Select your city">
+                                                            <span  class="text-danger" asp-validation-for="City"></span>
+                                                            <option>HELWAN</option>
+                                                            <option>DOKI</option>
+                                                            <option>MADDI</option>
+                                                            <option>EMBABA</option>
+                                                            <option>MOATEM</option>
+                                                            <option>HARAM , FISAL</option>
+                                                        </select>
+                                                    </div>
+                                              
+                                                
+                                                    <div class="form-group ">
+                                                        <label asp-for="Status"> Statue  :</label>
+                                                        <select asp-for="Status" id="basic" >
+                                                            <span  class="text-danger" asp-validation-for="Status"></span>
+                                                            <option>Rent </option>
+                                                            <option>SALE</option>
+                                                        </select>
+                                                    </div>
+                                               
+                                            </div>
+                                            <div class="col-sm-12 padding-top-15">                                                   
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label asp-for="Rooms" for="property-geo">RoomS :</label>
+                                                        <div class="form-group">
+                                                            <input asp-for="Rooms" min="1" name="Rooms" type="number" class="form-control" placeholder="Rooms ...">
+                                                            <span  class="text-danger" asp-validation-for="Rooms"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label asp-for="Baths" for="property-geo">Min baths :</label>
+                                                        <div  class="form-group">
+                                                            <input asp-for="Baths" min="1" name="baths" class="form-control" placeholder="baths ...">
+                                                            <span  class="text-danger" asp-validation-for="Baths"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label asp-for="Area" >Property area (m2) :</label>
+                                                        <div class="form-group">
+                                                            <input asp-for="Area" min="1"  class="form-control" placeholder="area ...">
+                                                            <span  class="text-danger" asp-validation-for="Area"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>   
+                                            </div>
+                                            <div class="col-sm-12 padding-top-15">
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label asp-for="SwimmingPool"> Swimming Pool</label>
+                                                            <input asp-for="SwimmingPool" >
+                                                            <span  class="text-danger" asp-validation-for="SwimmingPool"></span>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                                    
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label asp-for="EmergencyExit">Emergency Exit</label>
+                                                            <input asp-for="EmergencyExit">
+                                                            <span  class="text-danger" asp-validation-for="EmergencyExit"></span>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>                                                 
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label asp-for="FirePlace">Fire Place </label>
+                                                            <input asp-for="FirePlace">
+                                                            <span  class="text-danger" asp-validation-for="FirePlace"></span>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            </div> 
+                                            <div class="col-sm-12 padding-bottom-15">
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label asp-for="LaundryRoom">Laundry Room</label>
+                                                            <input asp-for="LaundryRoom" >
+                                                            <span  class="text-danger" asp-validation-for="LaundryRoom"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    
+                                    <!-- End step 2 -->
+
+                                        <h4 class="info-text">Give us some images and videos ? </h4>
+                                        <div class="row">  
+                                            @*<div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="property-images">Chose Images :</label>
+                                                    <input class="form-control" type="file" id="property-images">
+                                                    <div class="form-group"></div>
+                                                    <input class="form-control" type="file" id="property-images">
+                                                    <div class="form-group"></div>
+                                                    <input class="form-control" type="file" id="property-images">
+
+                                                    <p class="help-block">Select multipel images for your property .</p>
+                                                </div>*@
+                                            </div>
+                                            <div class="col-sm-6"> 
+                                                <div class="form-group">
+                                                    <label asp-for="VideoLink" for="property-video">Property video :</label>
+                                                    <input asp-for="VideoLink" class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
+                                                </div> </div>
+                                          <div>
+                                         <input type='submit' class='btn btn-primary ' name='finish' value='Finish' />
+                                         </div>
+
+                                </form> 
+                                </div>
+                              </div> 
+                        </div>
+                    </div>
+                </div>
+                                   
+                         

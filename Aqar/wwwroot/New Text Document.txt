@@ -1,0 +1,28 @@
+id-hidden
+<<<<<<<<STEP 1 >>>>>>
+image‏ الصورة الرئيسية 
+name 
+price‏
+telephone‏ XXXX
+
+<<<<<<<<STEP 2 >>>>>>
+description‏
+building number‏
+appartment number‏
+street‏
+State : المحافظات
+city‏
+Statue :بيع ؟ ايجار 
+roomsbaths
+area‏
+Swimming Pool checkbox
+Laundry Room checkbox
+Emergency Exit checkbox
+Fire Place checkbox
+
+<<<<<<<<STEP 3 >>>>>>
+multipel images 
+video link
+
+<<<<<<<<FINISHED >>>>>>
+ Accept termes and conditions.>> checkbox

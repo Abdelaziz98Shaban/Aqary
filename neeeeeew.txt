@@ -1,0 +1,10 @@
+[HttpGet]
+Iactionreslut Add()
+{
+
+}
+
+[HttpPost]
+Iactionreslut Add()
+{
+}‏
