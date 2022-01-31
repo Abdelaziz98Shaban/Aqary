@@ -1,15 +1,14 @@
-﻿using Aqar.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Aqar.Models;
 
 namespace Aqar.DataAccess.Repository.IRepository
 {
-    public interface IUserRepo:IRepository<User>
+    public  interface IDealsRepo: IRepository<UserDealRealstate>
     {
-        public void update(User obj);
-
+        public void update (UserDealRealstate obj); 
     }
 }
