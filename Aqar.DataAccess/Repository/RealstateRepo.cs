@@ -17,6 +17,11 @@ namespace Aqar.DataAccess.Repository
             _db = db;
         }
 
+        public IEnumerable<RealState> SearchByID(int CatID, string st)
+        {
+            return _db.RealStates.Where(x => x.CategoryId == CatID && x.State == st).ToList(); 
+        }
+
         public void Update(RealState obj)
         {
             _db.RealStates.Update(obj);
