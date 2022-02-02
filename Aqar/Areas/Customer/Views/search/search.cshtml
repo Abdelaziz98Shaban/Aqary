@@ -3,8 +3,8 @@
     SelectList Category = new SelectList(ViewBag.Cat,"Id","Name");
     SelectList State = new SelectList(ViewBag.Sat,"State","State");
 }
-<form asp-action="Search" asp-controller="Search">
-<select asp-for="CategoryId" asp-items="Category" class="form-select form-select-lg mb-3"><option selected>Category</option> </select>
-<select asp-for="State" asp-items="State" class="form-select form-select-lg mb-3"><option selected >State</option> </select>
-<button class="btn btn-danger" type="submit">search</button>
+<form asp-action="Search" asp-controller="Search" class="SearchBox ">
+    <select asp-for="CategoryId" asp-items="Category" class="form-select form-select-lg me-3"><option selected>Category</option> </select>
+    <select asp-for="State" asp-items="State" class="form-select form-select-lg me-3 "><option selected >State</option> </select>
+    <button class="btn btn-danger " type="submit">search</button>
 </form>
