@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Aqar.Models
+namespace Aqar.Models.ViewModels
 {
     public class RealStateVM
     {
@@ -22,21 +23,17 @@ namespace Aqar.Models
 
 
 
-
         [Display(Name = "Images"), Required(ErrorMessage = "Images Is Required"), RegularExpression(@"\w+\.(jpg|jpge|png)", ErrorMessage = "Image must contain jpg or jpge or png ")]
-        public IEnumerable<RealStateImage> Images { get; set; }
+        public IFormFileCollection ImageFiles { get; set; }
+
+        public List<RealStateImagesVM> Images { get; set; }
 
 
         [Display(Name = "Video Link"), StringLength(200)]
 
         public string VideoLink { get; set; }
 
-        // Ef mapp decimal to decimal , so we explicitly convert it to money , cuz money 8 bytes 
-        //can handle the dollar sign and commas, whereas decimal cannot.
-        //MONEY data type has rounding error if the fractional units bigger than 5 decimal places.
-        //Also if you are going to use MONEY data in a calculation involving multiplication or division,
-        //it is cautious to cast or round to the DECIMAL datatype.
-        [Required(ErrorMessage = "Price Is Required"), Display(Name = "Price"), Column(TypeName = "money"), Range(100000, 3000000000000000000)]
+        [Required(ErrorMessage = "Price Is Required"), Display(Name = "Price"), Range(100000, 3000000000000000000)]
         public decimal Price { get; set; }
 
 
@@ -63,18 +60,14 @@ namespace Aqar.Models
         [Required, Display(Name = "Building Number"), Range(1, 1000)]
         public int BuildingNumber { get; set; }
 
-
         [Required, Display(Name = "Appartment Number"), Range(1, 100)]
         public int AppartmentNumber { get; set; }
 
         [Required, Range(1, 100)]
         public int Rooms { get; set; }
 
-
-
         [Required, Range(1, 30)]
         public int Baths { get; set; }
-
 
         [Required, StringLength(50), RegularExpression(pattern: @"[a-zA-Z0-9\s]{3,}",
                           ErrorMessage = "Status must be char only and more than 2 characters")]
@@ -96,19 +89,10 @@ namespace Aqar.Models
 
         public bool FirePlace { get; set; }
 
-
-        [ForeignKey("User")]
         public int UserId { get; set; }
-        public User User { get; set; }
-
-        [ForeignKey("Category")]
+        //public User User { get; set; }
 
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
-
-        public string FullAdress
-        {
-            get { return State + ", " + City + ", " + Street + ", " + BuildingNumber + ", " + AppartmentNumber; }
-        }
+        //public Category Category { get; set; }
     }
 }

@@ -1,14 +1,11 @@
 ﻿using Aqar.DataAccess.Repository.IRepository;
 using Aqar.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aqar.DataAccess.Repository
 {
-    public class RealstateRepo : Repository<RealState>, IRealStateRepositroy
+    public class RealstateRepo : Repository<RealStateVM>, IRealStateRepositroy
     {
         private readonly ApplicationDbContext _db;
 
@@ -17,12 +14,12 @@ namespace Aqar.DataAccess.Repository
             _db = db;
         }
 
-        public IEnumerable<RealState> SearchByID(int CatID, string st)
+        public IEnumerable<RealStateVM> SearchByID(int CatID, string st)
         {
-            return _db.RealStates.Where(x => x.CategoryId == CatID && x.State == st).ToList(); 
+            return _db.RealStates.Where(x => x.CategoryId == CatID && x.State == st).ToList();
         }
 
-        public void Update(RealState obj)
+        public void Update(RealStateVM obj)
         {
             _db.RealStates.Update(obj);
         }

@@ -17,6 +17,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Aqar.DataAccess\Aqar.DataAccess.csproj" />
+    <ProjectReference Include="..\Aqar.Utility\Aqar.Utility.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Uploads\" />
   </ItemGroup>
 
 </Project>

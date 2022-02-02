@@ -1,12 +1,5 @@
 ﻿using Aqar.DataAccess.Repository.IRepository;
 using Aqar.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Aqar.Models;
 
 namespace Aqar.DataAccess.Repository
 {

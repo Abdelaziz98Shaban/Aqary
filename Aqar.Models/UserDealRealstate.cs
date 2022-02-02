@@ -6,7 +6,7 @@ namespace Aqar.Models
 {
     public class UserDealRealstate
     {
-        
+
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
         public User User { get; set; }
@@ -16,11 +16,11 @@ namespace Aqar.Models
         [ForeignKey(nameof(RealState))]
         public int RealStateId { get; set; }
 
-        public RealState RealState { get; set; }
+        public RealStateVM RealState { get; set; }
 
 
 
-        [Required(ErrorMessage = "DealDate Is Required"), DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "Deal Date Is Required"), DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         //DealDate as the operation of buying or selling the realstate 
         public DateTime DealDate { get; set; }
 

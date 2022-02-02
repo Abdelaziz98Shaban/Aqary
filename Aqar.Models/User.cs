@@ -6,17 +6,16 @@ namespace Aqar.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "FirstName Is Required"), Display(Name = "First Name"), StringLength(50), RegularExpression(pattern: "[a-zA-Z]{3,}",
+        [Required(ErrorMessage = "First Name Is Required"), Display(Name = "First Name"), StringLength(50), RegularExpression(pattern: @"[a-zA-Z0-9\s]{3,}",
                            ErrorMessage = "name must be char only and more than 2 characters")]
         public string FirstName { get; set; }
 
 
-        [Required(ErrorMessage = "LastName Is Required"), Display(Name = "Last Name"), StringLength(50), RegularExpression(pattern: "[a-zA-Z]{3,}",
+        [Required(ErrorMessage = "Last Name Is Required"), Display(Name = "Last Name"), StringLength(50), RegularExpression(pattern: @"[a-zA-Z0-9\s]{3,}",
                            ErrorMessage = "name must be char only and more than 2 characters")]
-
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "Email Is Required"), EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [Required, EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
 
         //[DataType(DataType.Password), RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,15}$",
@@ -24,10 +23,10 @@ namespace Aqar.Models
         //         " one lower case letter, and one numeric digit.")]
         //public string Password { get; set; }
 
-        [Required(ErrorMessage = "Address Is Required"), MaxLength(50)]
+        [Required, MaxLength(50)]
         public string Address { get; set; }
 
-        [Required(ErrorMessage = "Phone Is Required"), DataType(DataType.PhoneNumber), RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
+        [Required, DataType(DataType.PhoneNumber), RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
 
         public int Phone { get; set; }
 

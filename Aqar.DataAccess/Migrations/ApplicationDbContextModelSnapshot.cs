@@ -99,7 +99,6 @@ namespace Aqar.DataAccess.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Street")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -110,9 +109,8 @@ namespace Aqar.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("VideoLink")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
@@ -179,25 +177,18 @@ namespace Aqar.DataAccess.Migrations
 
             modelBuilder.Entity("Aqar.Models.UserDealRealstate", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DealDate")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<int>("RealStateId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("DealDate")
+                        .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId", "RealStateId");
 
                     b.HasIndex("RealStateId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Deals");
                 });

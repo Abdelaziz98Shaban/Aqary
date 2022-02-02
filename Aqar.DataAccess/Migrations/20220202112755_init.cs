@@ -1,12 +1,25 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 namespace Aqar.DataAccess.Migrations
 {
-    public partial class AddTabelsToDatabase : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
@@ -32,12 +45,12 @@ namespace Aqar.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
-                    VideoLink = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    VideoLink = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     Price = table.Column<decimal>(type: "money", nullable: false),
                     Area = table.Column<double>(type: "float", nullable: false),
                     State = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     City = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Street = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Street = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     BuildingNumber = table.Column<int>(type: "int", nullable: false),
                     AppartmentNumber = table.Column<int>(type: "int", nullable: false),
                     Rooms = table.Column<int>(type: "int", nullable: false),
@@ -71,15 +84,13 @@ namespace Aqar.DataAccess.Migrations
                 name: "Deals",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     RealStateId = table.Column<int>(type: "int", nullable: false),
                     DealDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Deals", x => x.Id);
+                    table.PrimaryKey("PK_Deals", x => new { x.UserId, x.RealStateId });
                     table.ForeignKey(
                         name: "FK_Deals_RealStates_RealStateId",
                         column: x => x.RealStateId,
@@ -120,11 +131,6 @@ namespace Aqar.DataAccess.Migrations
                 column: "RealStateId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Deals_UserId",
-                table: "Deals",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Images_RealStateId",
                 table: "Images",
                 column: "RealStateId");
@@ -150,6 +156,9 @@ namespace Aqar.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "RealStates");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Users");

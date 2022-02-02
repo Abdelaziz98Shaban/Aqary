@@ -11,10 +11,10 @@ namespace AqarWeb.Areas.Customer.Controllers
         {
             _unitOfWork = unitOfWork;
         }
-       
+
         public IActionResult Index()
         {
-            ViewData["Cat"]= _unitOfWork.Category.GetAll().ToList();
+            ViewData["Cat"] = _unitOfWork.Category.GetAll().ToList();
             ViewData["Sat"] = _unitOfWork.RealState.GetAll().ToList();
             return View("search");
         }
@@ -24,7 +24,7 @@ namespace AqarWeb.Areas.Customer.Controllers
             ViewData["Cat"] = _unitOfWork.Category.GetAll().ToList();
             ViewData["Sat"] = _unitOfWork.RealState.GetAll().ToList();
             var ers = _unitOfWork.RealState.SearchByID(CategoryId, State);
-            return View("result",ers);
+            return View("result", ers);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Aqar.DataAccess.Repository
         }
         public ICategoryRepository Category { get; private set; }
         public IRealStateRepositroy RealState { get; private set; }
-        public IUserRepo User { get; private set; } 
+        public IUserRepo User { get; private set; }
         public IDealsRepo Deals { get; private set; }
         public IImageRepo Image { get; private set; }
         public void Save()

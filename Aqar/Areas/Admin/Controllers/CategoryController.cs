@@ -43,7 +43,7 @@ namespace Aqar.Controllers
                 return NotFound();
             }
 
-            Category category = _unitOfWork.Category.GetById(c=> c.Id == id);
+            Category category = _unitOfWork.Category.GetById(c => c.Id == id);
 
             if (category == null)
             {
@@ -53,7 +53,7 @@ namespace Aqar.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int? id,Category category)
+        public IActionResult Edit(int? id, Category category)
         {
             if (id == null || id == 0)
             {

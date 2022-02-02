@@ -1,16 +1,12 @@
 ﻿using Aqar.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aqar.DataAccess.Repository.IRepository
 {
-    public interface IRealStateRepositroy : IRepository<RealState>
+    public interface IRealStateRepositroy : IRepository<RealStateVM>
     {
-        void Update(RealState obj);
+        void Update(RealStateVM obj);
 
-        IEnumerable<RealState> SearchByID(int CatID , string st);
+        IEnumerable<RealStateVM> SearchByID(int CatID, string st);
     }
 }

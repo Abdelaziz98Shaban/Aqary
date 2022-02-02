@@ -9,7 +9,7 @@ namespace Aqar.DataAccess
         {
         }
         public DbSet<User> Users { get; set; }
-        public DbSet<RealState> RealStates { get; set; }
+        public DbSet<RealStateVM> RealStates { get; set; }
         public DbSet<RealStateImage> Images { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<UserDealRealstate> Deals { get; set; }
@@ -22,7 +22,7 @@ namespace Aqar.DataAccess
             modelBuilder.Entity<UserDealRealstate>()
                 .HasKey(deal => new { deal.UserId, deal.RealStateId });
 
-            
+
         }
     }
 }
