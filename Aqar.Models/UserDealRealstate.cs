@@ -16,7 +16,7 @@ namespace Aqar.Models
         [ForeignKey(nameof(RealState))]
         public int RealStateId { get; set; }
 
-        public RealStateVM RealState { get; set; }
+        public RealState RealState { get; set; }
 
 
 

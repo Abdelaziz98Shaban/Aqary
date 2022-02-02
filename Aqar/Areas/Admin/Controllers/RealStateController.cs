@@ -28,7 +28,7 @@ namespace AqarWeb.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            return View(new RealStateVM());
         }
 
         [HttpPost]
@@ -44,20 +44,17 @@ namespace AqarWeb.Areas.Admin.Controllers
                     {
                         var img = new RealStateImagesVM()
                         {
-                            Name = file.Name,
                             ImageUrl = UploadImage(file)
                         };
 
                         realStateVM.Images.Add(img);
                     }
                 }
-                //int id =  _db.RealState.AddNewBook(bookModel);
-                //if (id > 0)
-                //{
-                //    return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
-                //}
+                    _db.RealState.AddNewRealState(realStateVM);
+                    _db.Save();
+                    return RedirectToAction(nameof(Index));
             }
-            return View();
+            return View(realStateVM);
         }
 
         private string UploadImage(IFormFile file)
@@ -67,7 +64,10 @@ namespace AqarWeb.Areas.Admin.Controllers
             string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, SD.FileUploadFolder);
 
             uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
             string filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
             using (var fileStream = new FileStream(filePath, FileMode.Create))

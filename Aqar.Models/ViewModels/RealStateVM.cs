@@ -23,7 +23,7 @@ namespace Aqar.Models.ViewModels
 
 
 
-        [Display(Name = "Images"), Required(ErrorMessage = "Images Is Required"), RegularExpression(@"\w+\.(jpg|jpge|png)", ErrorMessage = "Image must contain jpg or jpge or png ")]
+        [Display(Name = "Images"), Required(ErrorMessage = "Images Is Required")]
         public IFormFileCollection ImageFiles { get; set; }
 
         public List<RealStateImagesVM> Images { get; set; }

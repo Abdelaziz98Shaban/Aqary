@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Aqar.Models
 {
-    public class RealStateVM
+    public class RealState
     {
         public int Id { get; set; }
 
@@ -24,7 +24,7 @@ namespace Aqar.Models
 
 
         [Display(Name = "Images"), Required(ErrorMessage = "Images Is Required"), RegularExpression(@"\w+\.(jpg|jpge|png)", ErrorMessage = "Image must contain jpg or jpge or png ")]
-        public IEnumerable<RealStateImage> Images { get; set; }
+        public List<RealStateImage> Images { get; set; }
 
 
         [Display(Name = "Video Link"), StringLength(200)]

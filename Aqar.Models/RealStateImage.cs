@@ -6,6 +6,6 @@
 
         public string ImageUrl { get; set; }
 
-        public RealStateVM RealState { get; set; }
+        public RealState RealState { get; set; }
     }
 }
