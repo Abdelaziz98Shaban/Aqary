@@ -69,3 +69,113 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.topper {
+    background-color: rgba(89,80,81);
+    background-image: url("banner-pattent.png");
+}
+
+.first {
+    padding-top: 100px;
+}
+
+.butto {
+    color: white;
+    background-color: #c6305d;
+    border: none;
+}
+
+    .butto:hover {
+        color: #c6305d;
+        background-color: white;
+    }
+
+.prev {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+    .prev::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 1;
+        border-radius: 15px;
+        transition: all 0.3s;
+    }
+
+span {
+    position: absolute;
+    opacity: 0;
+    transition: 0.25s;
+    transform: translateY(50px);
+    border-radius: 15px;
+    color: black;
+    margin-bottom: 0px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 25px;
+    background-color: white;
+}
+
+.prev:hover span {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.prev img {
+    border-radius: 15px;
+}
+
+    .prev img:hover {
+        transform: scale(1.1,1.1);
+    }
+
+.prev::after:hover {
+    width: 100%;
+    height: 100%;
+}
+
+
+.create{
+    display:flex;
+    flex-wrap:wrap;
+
+}
+
+.form-group{
+    width:48%;
+    margin-right:2%;
+    margin-bottom:2%;
+}
+
+.chec {
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+
+    .chec .checkbox {
+        width: 50%;
+    }
+
+.bttn {
+    display: flex;
+    width: 100%;
+  
+}
+
+.SearchBox{
+    display:flex;
+}
+
+.product{
+    text-decoration:none;
+}
