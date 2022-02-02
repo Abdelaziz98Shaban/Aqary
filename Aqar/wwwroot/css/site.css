@@ -175,3 +175,7 @@ span {
 .SearchBox{
     display:flex;
 }
+
+.product{
+    text-decoration:none;
+}
