@@ -65,32 +65,33 @@ background-color: rgba(17, 24, 53, 0.8);
     text-decoration: none;
 }
 
-
 .container-group{
     display: flex;
     justify-content: space-between;
     margin: 20px;
 }
- .card{
+.card {
     margin: 20px;
+    font-family: 'Supermercado One', cursive;
+    opacity:75%;
+    border:none;
 }
 .card:hover{
     transform: scale(1.1, 1.1);
     transition: all 1s;
-    background-color: #C4CBB7;
+    opacity:1;
 }
-.card a{
-    text-align: center;
-    text-decoration: none;
-    font-family: 'segoe ui light';
-    font-size: 20px;
-    color: black;
-    background-color: #C4CBB7;
-
-}
+    .card a {
+        text-align: center;
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+/*        background-color: #C4CBB7;
+*/    }
 .card a:hover
 {
-background-color: #E8CAAF;
+background-color:firebrick;
+color:#fff;
 }
 
 

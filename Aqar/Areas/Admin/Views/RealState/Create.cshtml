@@ -3,13 +3,12 @@
 @{
     ViewData["Title"] = "Add";
 }
+<div class="All">
+                        <h2>Add RealState</h2><hr />
 
-<h2>Add</h2>
-
-<h4>RealState</h4>
-<hr />
         <form asp-action="Create" enctype="multipart/form-data" class="create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -110,14 +109,25 @@
                 <input asp-for="CategoryId" class ="form-control" />
             </div>
             <div class="form-group bttn">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-success" />
             </div>
         </form>
   
-
+        </div>
 
 
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<style>
+    .All{
+        text-align:center;
+    font-weight: 900;
+    font-family: 'Supermercado One', cursive;
+    background-color:white;
+    opacity:85%;
+    height:auto;
+    padding:20px;
+    }
+</style>

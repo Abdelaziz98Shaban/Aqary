@@ -1,33 +1,92 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+/*body {
+    background-image:url("../Images/background.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
+}*/
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index:-1;
+}
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+.container .navbar-brand {
+    font-weight: 900;
+    font-size: 150%;
+    font-family: 'Supermercado One', cursive;
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
+    text-decoration: none;
+}
+li {
+    margin: auto;
+    font-family: 'Supermercado One', cursive;
+    font-weight:900px;
+    font-size:140%;
+}
+.navbar-collapse li:hover {
+    background-color: #059862;
+    transform: scale(1.2, 1.2);
+    transition: all .2s;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.creat_button .btn {
+    color: #fff;
+    background-color: #d93636;
+    border-color: #d93636;
+    font-family: 'Supermercado One', cursive;
+    font-weight: 300;
+    opacity:85%;
+}
+    .creat_button .btn:hover {
+        color: #fff;
+        background-color: black;
+        border-color: black;
+        font-family: 'Supermercado One', cursive;
+        font-weight: 300;
+    }
+h2{
+    font-family: 'Supermercado One', cursive;
+}
+ th {
+    font-family: 'Supermercado One', cursive;
+    text-align:center;
+    font-size:130%;
+}
+tbody{
+    text-align:center;
+    font-weight:400;
+    font-size:150%;
+}
+table{
+    color:white;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+    font-family: 'Supermercado One', cursive;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 50px;
+    font-family: Cairo,sans-serif;
+    color: #555;
 }
 @media (min-width: 768px) {
   html {
@@ -64,7 +123,7 @@ body {
 }
 .footer {
   position: absolute;
-  bottom: 0;
+  bottom:0;
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
@@ -94,6 +153,7 @@ body {
     position: relative;
     display: flex;
     justify-content: center;
+    min-height: 70vh;
     align-items: center;
     z-index: 1;
 }
@@ -111,36 +171,44 @@ body {
         transition: all 0.3s;
     }
 
-span {
+.products {
     position: absolute;
     opacity: 0;
-    transition: 0.25s;
+    transition: 0.5s;
     transform: translateY(50px);
     border-radius: 15px;
     color: black;
     margin-bottom: 0px;
-    height: 45px;
+    height: auto;
     line-height: 45px;
     padding: 0 25px;
     background-color: white;
 }
 
-.prev:hover span {
+.prev:hover .products {
     opacity: 1;
     transform: translateY(0px);
+    font-weight: 900;
+    font-size: 300%;
+    font-family: 'Supermercado One', cursive;
 }
 
 .prev img {
+    width: 300px;
+    height:300px;
     border-radius: 15px;
 }
 
     .prev img:hover {
         transform: scale(1.1,1.1);
+        transition: all .5s ease-out;
+        
     }
 
 .prev::after:hover {
     width: 100%;
     height: 100%;
+    
 }
 
 
@@ -178,4 +246,7 @@ span {
 
 .product{
     text-decoration:none;
+}
+.container .text-primary{
+    color: black;
 }
