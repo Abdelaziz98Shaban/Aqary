@@ -2,14 +2,17 @@
 @{
     SelectList Category = new SelectList(ViewBag.Cat,"Id","Name");
     SelectList State = new SelectList(ViewBag.Sat,"State","State");
-}
-<form asp-action="Search" asp-controller="Search" class="SearchBox ">
-    <select asp-for="CategoryId" asp-items="Category" class="form-select form-select-lg me-3"><option selected>Category</option> </select>
-    <select asp-for="State" asp-items="State" class="form-select form-select-lg me-3 "><option selected >State</option> </select>
-    <button class="btn btn-danger" type="submit">search</button>
+    
+ }
+
+<form asp-controller="Search" asp-action="Search" class="SearchBox ">
+    <select id="s1" asp-for="CategoryId" asp-items="Category" class="form-select form-select-lg me-3"><option selected>Category</option> </select>
+    <select id="s2" asp-for="State" asp-items="State" class="form-select form-select-lg me-3 "><option selected >State</option> </select>
+    <input class="btn btn-danger"  name="ghanem" type="submit"  value="search"/>
 </form>
 <style>
     .SearchBox {
             font-family: 'Supermercado One', cursive;
     }
 </style>
+<partial name="_NotFound"/>

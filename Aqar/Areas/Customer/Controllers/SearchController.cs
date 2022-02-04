@@ -24,7 +24,11 @@ namespace AqarWeb.Areas.Customer.Controllers
             ViewData["Cat"] = _unitOfWork.Category.GetAll().ToList();
             ViewData["Sat"] = _unitOfWork.RealState.GetAll().ToList();
             var ers = _unitOfWork.RealState.SearchByID(CategoryId, State);
-            return View("result", ers);
+           if(ers.Any())
+            {
+            return View("_SearchResult", ers);
+            }
+            else { return View("_NotFound"); }
         }
     }
 }

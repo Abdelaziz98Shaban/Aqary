@@ -30,7 +30,7 @@ namespace AqarWeb.Areas.Admin.Controllers
         {
             return View(new RealStateVM());
         }
-
+        
         [HttpPost]
         public IActionResult Create(RealStateVM realStateVM)
         {
