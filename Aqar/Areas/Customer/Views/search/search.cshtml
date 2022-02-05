@@ -5,14 +5,40 @@
     
  }
 
-<form asp-controller="Search" asp-action="Search" class="SearchBox ">
+<form class="SearchBox" method="post">
     <select id="s1" asp-for="CategoryId" asp-items="Category" class="form-select form-select-lg me-3"><option selected>Category</option> </select>
     <select id="s2" asp-for="State" asp-items="State" class="form-select form-select-lg me-3 "><option selected >State</option> </select>
-    <input class="btn btn-danger"  name="ghanem" type="submit"  value="search"/>
+    <input class="btn btn-danger" type="submit"  value="search" id="BtnSave"/>
 </form>
+<div id="result"></div>
 <style>
     .SearchBox {
             font-family: 'Supermercado One', cursive;
     }
 </style>
-<partial name="_NotFound"/>
+
+@section Scripts{
+    <script>
+    const btn = document.getElementById("BtnSave");
+    const cat = document.getElementById("s1");
+    const state = document.getElementById("s2"); 
+    btn.addEventListener("click",e=>{
+        e.preventDefault();
+          console.log(cat.options.selectedIndex);
+          console.log(state.value);
+          $.ajax(
+                {
+                
+                    url  : "/Customer/Search/Search",
+                    data :{"CategoryId":cat.options.selectedIndex,"State":state.value},
+                    success: function(result){
+                                $("#result").html(result);
+                        }
+                }
+                );
+             
+    })
+
+
+</script>
+}
