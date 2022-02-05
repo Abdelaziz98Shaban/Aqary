@@ -1,4 +1,5 @@
 ﻿using Aqar.DataAccess.Repository.IRepository;
+using Aqar.Models;
 using Aqar.Models.ViewModels;
 using Aqar.Utility;
 using Microsoft.AspNetCore.Hosting;
@@ -78,6 +79,36 @@ namespace AqarWeb.Areas.Admin.Controllers
             //file.CopyTo(new FileStream(filePath, FileMode.Create));
 
             return uniqueFileName;
+        }
+
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var editTarget = _db.RealState.GetById(c=>c.Id==id);
+            if (editTarget == null)
+            {
+                return NotFound();
+            }
+            return View(editTarget);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int? id, RealState RealState)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                _db.RealState.Update(RealState);
+                _db.Save();
+                return RedirectToAction("Index");
+            }
+            return View(RealState);
         }
     }
 }
