@@ -23,12 +23,9 @@
     const cat = document.getElementById("s1");
     const state = document.getElementById("s2"); 
     btn.addEventListener("click",e=>{
-        e.preventDefault();
-          console.log(cat.options.selectedIndex);
-          console.log(state.value);
+           e.preventDefault();
           $.ajax(
                 {
-                
                     url  : "/Customer/Search/Search",
                     data :{"CategoryId":cat.options.selectedIndex,"State":state.value},
                     success: function(result){
