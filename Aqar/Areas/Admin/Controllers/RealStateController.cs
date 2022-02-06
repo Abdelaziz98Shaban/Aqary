@@ -30,7 +30,7 @@ namespace AqarWeb.Areas.Admin.Controllers
         {
             return View(new RealStateVM());
         }
-        
+
         [HttpPost]
         public IActionResult Create(RealStateVM realStateVM)
         {
@@ -50,9 +50,9 @@ namespace AqarWeb.Areas.Admin.Controllers
                         realStateVM.Images.Add(img);
                     }
                 }
-                    _db.RealState.AddNewRealState(realStateVM);
-                    _db.Save();
-                    return RedirectToAction(nameof(Index));
+                _db.RealState.AddNewRealState(realStateVM);
+                _db.Save();
+                return RedirectToAction(nameof(Index));
             }
             return View(realStateVM);
         }

@@ -89,7 +89,7 @@ namespace Aqar.Models.ViewModels
 
         public bool FirePlace { get; set; }
 
-       // public int UserId { get; set; }
+        // public int UserId { get; set; }
         //public User User { get; set; }
 
         public int CategoryId { get; set; }

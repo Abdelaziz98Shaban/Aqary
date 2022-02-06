@@ -18,14 +18,14 @@ namespace AqarWeb.Areas.Customer.Controllers
             ViewData["Sat"] = _unitOfWork.RealState.GetAll().ToList();
             return View("search");
         }
-   
+
         public IActionResult Search(int CategoryId, string State)
         {
             ViewData["Cat"] = _unitOfWork.Category.GetAll().ToList();
             ViewData["Sat"] = _unitOfWork.RealState.GetAll().ToList();
             var ers = _unitOfWork.RealState.SearchByID(CategoryId, State);
-            if(ers.Any()){return PartialView("_SearchResult",ers);} else return PartialView("_NotFound"); 
-            
+            if (ers.Any()) { return PartialView("_SearchResult", ers); } else return PartialView("_NotFound");
+
         }
     }
 }
