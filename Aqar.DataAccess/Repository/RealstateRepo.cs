@@ -34,7 +34,7 @@ namespace Aqar.DataAccess.Repository
                 FirePlace = vm.FirePlace,
                 SwimmingPool = vm.SwimmingPool,
                 LaundryRoom = vm.LaundryRoom,
-                UserId = vm.UserId,
+                //UserId = vm.UserId,
                 CategoryId = vm.CategoryId
             };
 
