@@ -1,5 +1,6 @@
 ﻿using Aqar.Models;
 using Aqar.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -22,15 +23,18 @@ namespace AqarWeb.Areas.Account.Controllers
         }
         // REGISTER
         [HttpGet]
-        public async Task<IActionResult> Register()
+        public async Task<IActionResult> Register(string returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             return View(new RegisterVM());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterVM model)
+        public async Task<IActionResult> Register(RegisterVM model, string returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
+            returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser()
@@ -44,7 +48,7 @@ namespace AqarWeb.Areas.Account.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home", new { Area = "Customer" });
+                    return LocalRedirect(returnUrl);
                     //TODO:: Fix redirction
                 }
                 AddErrors(result);
@@ -54,21 +58,26 @@ namespace AqarWeb.Areas.Account.Controllers
 
         // LOG IN
         [HttpGet]
-        public async Task<IActionResult> Login()
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(string returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginVM model)
+        public async Task<IActionResult> Login(LoginVM model, string returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
+            returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe,lockoutOnFailure:false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home", new { Area = "Customer" });
+                    return LocalRedirect(returnUrl);
                 }
                 else
                 {

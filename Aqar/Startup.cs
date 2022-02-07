@@ -33,6 +33,11 @@ namespace Aqar
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Account/Account/Login";
+            });
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddRazorPages().AddRazorRuntimeCompilation();

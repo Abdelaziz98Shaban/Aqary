@@ -1,5 +1,6 @@
 ﻿using Aqar.DataAccess.Repository.IRepository;
 using Aqar.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Aqar.Controllers
@@ -17,6 +18,7 @@ namespace Aqar.Controllers
             return View(_unitOfWork.Category.GetAll());
         }
 
+        [Authorize]
         public IActionResult Create()
         {
             return View();
