@@ -20,7 +20,7 @@ namespace AqarWeb.Areas.Account.Controllers
         {
             return View();
         }
-
+        // REGISTER
         [HttpGet]
         public async Task<IActionResult> Register()
         {
@@ -44,7 +44,7 @@ namespace AqarWeb.Areas.Account.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home", new { Area = "Customer" });
                     //TODO:: Fix redirction
                 }
                 AddErrors(result);
@@ -52,6 +52,34 @@ namespace AqarWeb.Areas.Account.Controllers
             return View(model);
         }
 
+        // LOG IN
+        [HttpGet]
+        public async Task<IActionResult> Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe,lockoutOnFailure:false);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home", new { Area = "Customer" });
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return View(model);
+                }
+            }
+            return View(model);
+        }
+
+        // LOG OUT
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> LogOff()
@@ -59,6 +87,7 @@ namespace AqarWeb.Areas.Account.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home", new {Area = "Customer"});
         }
+
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)
