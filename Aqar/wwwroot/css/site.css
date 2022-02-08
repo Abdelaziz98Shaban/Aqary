@@ -11,7 +11,7 @@ for details on configuring this project to bundle and minify static web assets. 
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    z-index:-1;
+    z-index: -1;
 }
 
 a.navbar-brand {
@@ -19,10 +19,10 @@ a.navbar-brand {
     text-align: center;
     word-break: break-all;
 }
+
 .container .navbar-brand {
     font-weight: 900;
     font-size: 150%;
-    font-family: 'Supermercado One', cursive;
 }
 
 /* Provide sufficient contrast against white background */
@@ -30,55 +30,53 @@ a {
     color: #0366d6;
     text-decoration: none;
 }
+
 li {
     margin: auto;
-    font-family: 'Supermercado One', cursive;
-    font-weight:900px;
-    font-size:140%;
+    font-size: 140%;
 }
-.navbar-collapse li:hover {
-    background-color: #059862;
-    transform: scale(1.2, 1.2);
-    transition: all .2s;
+
+.navbar li:hover {
+    background-color: firebrick;
+    transform: scale(1.3);
+    transition: all .5s;
+    border-radius: 20px;
 }
 
 .creat_button .btn {
     color: #fff;
     background-color: #d93636;
     border-color: #d93636;
-    font-family: 'Supermercado One', cursive;
     font-weight: 300;
-    opacity:85%;
+    opacity: 85%;
 }
+
     .creat_button .btn:hover {
         color: #fff;
         background-color: black;
         border-color: black;
-        font-family: 'Supermercado One', cursive;
         font-weight: 300;
     }
-h2{
-    font-family: 'Supermercado One', cursive;
+
+th {
+    text-align: center;
+    font-size: 130%;
 }
- th {
-    font-family: 'Supermercado One', cursive;
-    text-align:center;
-    font-size:130%;
+
+tbody {
+    text-align: center;
+    font-weight: 400;
+    font-size: 150%;
 }
-tbody{
-    text-align:center;
-    font-weight:400;
-    font-size:150%;
-}
-table{
-    color:white;
+
+table {
+    color: white;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
-    font-family: 'Supermercado One', cursive;
 }
 
 /* Sticky footer styles
@@ -88,45 +86,48 @@ html {
     font-family: Cairo,sans-serif;
     color: #555;
 }
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
+
 .footer {
-  position: absolute;
-  bottom:0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
 }
 
 .topper {
@@ -188,46 +189,42 @@ body {
 .prev:hover .products {
     opacity: 1;
     transform: translateY(0px);
-    font-weight: 900;
-    font-size: 300%;
-    font-family: 'Supermercado One', cursive;
 }
 
 .prev img {
     width: 300px;
-    height:300px;
+    height: 300px;
     border-radius: 15px;
 }
 
     .prev img:hover {
         transform: scale(1.1,1.1);
         transition: all .5s ease-out;
-        
     }
 
 .prev::after:hover {
     width: 100%;
     height: 100%;
-    
 }
 
 
-.create{
-    display:flex;
-    flex-wrap:wrap;
-
+.create {
+    display: flex;
+    flex-wrap: wrap;
+    background: white;
+    opacity: 80%;
+    border-radius: 20px;
 }
 
-.form-group{
-    width:48%;
-    margin-right:2%;
-    margin-bottom:2%;
+.form-group {
+    width: 48%;
+    margin-right: 2%;
+    margin-bottom: 2%;
 }
 
 .chec {
     display: flex;
     flex-wrap: wrap;
-   
 }
 
     .chec .checkbox {
@@ -237,16 +234,23 @@ body {
 .bttn {
     display: flex;
     width: 100%;
-  
 }
 
-.SearchBox{
-    display:flex;
+.SearchBox {
+    display: flex;
 }
 
-.product{
-    text-decoration:none;
+.product {
+    text-decoration: none;
 }
-.container .text-primary{
+
+.container .text-primary {
     color: black;
+}
+
+
+.Ao {
+    background: white;
+    opacity: 80%;
+    border-radius: 20px;
 }

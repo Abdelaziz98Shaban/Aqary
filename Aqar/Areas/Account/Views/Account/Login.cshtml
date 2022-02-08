@@ -1,0 +1,58 @@
+﻿@model LoginVM
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+
+
+<div class="row d-flex">
+    <div class="col-md-4 mx-auto my-auto mt-2 " >
+        <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal Ao p-3" role="form">
+            <h4>Please enter a valid account:</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group w-100">
+                <label asp-for="Email" class="w-100 control-label"></label>
+                <div class="col-md-12">
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group w-100">
+                <label asp-for="Password" class="col-md-8 control-label"></label>
+                <div class="col-md-12">
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group w-100">
+                <div class="col-md-12">
+                    <div class="form-check">
+                        <input asp-for="RememberMe" class="form-check-input" />
+                        <label asp-for="RememberMe" class="form-check-label"></label>
+                        <span asp-validation-for="RememberMe" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group w-100">
+                <div class="col-md-12 d-flex">
+                    <button type="submit" class="btn btn-primary m-auto">Login</button>
+
+                </div>
+            </div>
+            <p class="mt-4">
+                <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Register as new user?</a>
+            </p>
+            
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+ }
+}
