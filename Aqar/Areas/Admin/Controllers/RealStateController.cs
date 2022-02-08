@@ -2,12 +2,15 @@
 using Aqar.Models;
 using Aqar.Models.ViewModels;
 using Aqar.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace AqarWeb.Areas.Admin.Controllers
 {
@@ -25,13 +28,14 @@ namespace AqarWeb.Areas.Admin.Controllers
         {
             return View(_db.RealState.GetAll());
         }
-
+        [Authorize]
         [HttpGet]
         public IActionResult Create()
         {
+            ViewData["CatID"] = _db.Category.GetAll().ToList();
             return View(new RealStateVM());
         }
-        
+        [Authorize]
         [HttpPost]
         public IActionResult Create(RealStateVM realStateVM)
         {
@@ -51,9 +55,9 @@ namespace AqarWeb.Areas.Admin.Controllers
                         realStateVM.Images.Add(img);
                     }
                 }
-                    _db.RealState.AddNewRealState(realStateVM);
-                    _db.Save();
-                    return RedirectToAction(nameof(Index));
+                _db.RealState.AddNewRealState(realStateVM);
+                _db.Save();
+                return RedirectToAction(nameof(Index));
             }
             return View(realStateVM);
         }

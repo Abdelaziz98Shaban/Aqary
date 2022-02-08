@@ -8,7 +8,10 @@ namespace Aqar.DataAccess.Repository.IRepository
     {
         void Update(RealState obj);
         void AddNewRealState(RealStateVM vm);
+        public IEnumerable<RealState> GetAllWithImgs();
 
         IEnumerable<RealState> SearchByID(int CatID, string st);
+
     }
+
 }

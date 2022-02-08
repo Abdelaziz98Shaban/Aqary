@@ -97,9 +97,9 @@ namespace Aqar.Models
         public bool FirePlace { get; set; }
 
 
-        [ForeignKey("User")]
-        public int UserId { get; set; }
-        public User User { get; set; }
+        //[ForeignKey("User")]
+        //public int UserId { get; set; }
+        //public User User { get; set; }
 
         [ForeignKey("Category")]
 

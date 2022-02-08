@@ -1,9 +1,11 @@
 ﻿using Aqar.DataAccess.Repository.IRepository;
 using Aqar.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Aqar.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -12,11 +14,13 @@ namespace Aqar.Controllers
         {
             _unitOfWork = unitOfWork;
         }
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View(_unitOfWork.Category.GetAll());
         }
 
+    
         public IActionResult Create()
         {
             return View();
