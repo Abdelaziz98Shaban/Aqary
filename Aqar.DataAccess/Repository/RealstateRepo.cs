@@ -1,6 +1,7 @@
 ﻿using Aqar.DataAccess.Repository.IRepository;
 using Aqar.Models;
 using Aqar.Models.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -57,6 +58,11 @@ namespace Aqar.DataAccess.Repository
         public void Update(RealState obj)
         {
             _db.RealStates.Update(obj);
+        }
+
+        public IEnumerable<RealState> GetAllWithImgs()
+        {
+            return _db.RealStates.Include(x => x.Images).ToList();
         }
     }
 }

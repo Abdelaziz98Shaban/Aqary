@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Aqar.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -13,12 +14,13 @@ namespace Aqar.Controllers
         {
             _unitOfWork = unitOfWork;
         }
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View(_unitOfWork.Category.GetAll());
         }
 
-        [Authorize]
+    
         public IActionResult Create()
         {
             return View();
