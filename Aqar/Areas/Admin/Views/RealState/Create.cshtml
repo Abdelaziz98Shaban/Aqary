@@ -1,6 +1,6 @@
 ﻿@model RealStateVM
 
-@{
+@{ SelectList Category = new SelectList(ViewBag.CatID,"Id","Name");
     ViewData["Title"] = "Add";
 }
 <div class="All">
@@ -106,7 +106,7 @@
             </div>*@
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
-                <input asp-for="CategoryId" class ="form-control" />
+              <select id="s1" asp-for="CategoryId" asp-items="Category" class="form-select form-select-lg"></select>
             </div>
             <div class="form-group bttn">
                 <input type="submit" value="Create" class="btn btn-success" />
